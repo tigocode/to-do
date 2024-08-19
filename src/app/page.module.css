@@ -1,1 +1,49 @@
-
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+.to_do_list {  
+  max-width:1024px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+}
+.to_do_list div {
+  display: flex;
+  gap: 20px;
+  padding: 0px 20px;
+}
+.button_add_task {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: #6771E5;
+  color: #ffffff;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.icon_add {
+  background: none;
+  font-size: 30px;
+  position: relative;
+  right: 9px;
+}
+.input_task {
+  border: none;
+  border-radius: 5px;
+  width: 48%;
+  height: 40px;
+}
+.list_tasks {
+  width: 100%;
+  list-style: none;
+  margin-top: 30px;
+}
+.to_do_list,
+.list_tasks,
+.to_do_list div {
+  background: #92c2d7;
+}
