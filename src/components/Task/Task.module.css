@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  gap: 10px;
+}
+.container div {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+.container input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+.container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+.container button p {
+  font-size: 16px;
+  color: #FFF;
+  background: none;
+}
+.icon_add,
+.icon_delete {
+  font-size: 19px;
+  color: #FFF;
+  background: none;
+}
+.button_add_task {
+  background: #055AE2;
+}
+.button_delete_task {
+  background: #E24705;
+}
