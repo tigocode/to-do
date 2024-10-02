@@ -1,37 +1,33 @@
 .container_item {
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 .task {
-  cursor: pointer;
-  width: 90%;
-  height: 50px;
-  font-weight: 400;
-}
-.input_task {
-  width: 40%;
-  height: 50px;
-  border: none;
-
-  font-size: 17px;
-}
-.input_task,
-.task {
-  background-color: #F2F2F2;
+  background: #92c2d76f;
   box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
  
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
   padding: 0 15px;
   border-radius: 5px;
-  margin-bottom: 20px;
-
-
-  color: #3C475E;
+  border: none;
 }
+.task p,
 .icon_task {
   background: none;  
+}
+.task p {
+  font-weight: 600;
+  color: #3c507e;
 }
 .check {
   font-size: 24px;
@@ -41,18 +37,18 @@
   color: #E097AA;
   font-size: 22px;
 }
-.icon_sum {
-  height: 50px;
-  border: none;
-  border-radius: 10%;
-  background-color: #EA3B67;
-  color: #ffffff;
-  padding: 0 15px;
-  cursor: pointer;
+@keyframes animar {
+  0% {
+    transform: scale(1);    
+  }
+  100% {
+    transform: scale(1.02);
+    margin: 0px 2px;
+  }
 }
-.icon {
-  background: none;
-  font-size: 40px;
-  position: relative;
-  top: 2px;
+.task:hover {
+  animation-name: animar;
+  animation-duration: 5s;
+  animation-timing-function: step-start;
+  background: #92c2d7;
 }

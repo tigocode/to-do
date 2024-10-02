@@ -16,9 +16,9 @@ export default function Home() {
       <div className={styles.list_tasks}>
         <h1>LISTAS DE COMPRAS</h1>
         <div className={styles.line}></div>
-        <ul>
+        <div className={styles.itens}>
           <Itens />
-        </ul>
+        </div>
       </div>
     </main>
   );
