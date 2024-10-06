@@ -15,13 +15,13 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding: 15px;  
-  background: #92c2d7;
+  background: linear-gradient(#121212, #000172, #000272cf);
 }
 .to_do_top
 .to_do_top,
 .list_tasks,
 .to_do_top div {
-  background: #92c2d7;
+  background: #00027200;
 }
 .list_tasks {
   display: flex;
@@ -34,7 +34,7 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 15px;  
-  background: #92c2d7;
+  background: linear-gradient(#000272cf, #000172, #121212);
 }
 .list_tasks h1 {
   font-size: 20px;
@@ -45,8 +45,9 @@
 .line {
   width: 99%;
   height: 2px;
-  background: #bee5eb;
+  background: #FFF;
 }
 .itens {
   width: 100%;
+  height: auto;
 }

@@ -1,13 +1,15 @@
 .container_item {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   align-items: center;
   justify-content: center;
+  height: auto;
   padding: 10px;
 }
 .task {
-  background: #92c2d76f;
+  background: linear-gradient(#000272cf, #000172, #121212);
   box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
  
   display: flex;
@@ -23,18 +25,23 @@
 }
 .task p,
 .icon_task {
-  background: none;  
+  background: none;
+  border: none;
+}
+.icon_task {
+  display: flex;
+  align-items: center;
 }
 .task p {
   font-weight: 600;
-  color: #3c507e;
+  color: #e6e9ee;
 }
 .check {
   font-size: 24px;
   color: #44C25B;
 }
 .trash {
-  color: #E097AA;
+  color: #ea0b47;
   font-size: 22px;
 }
 @keyframes animar {
@@ -50,5 +57,5 @@
   animation-name: animar;
   animation-duration: 5s;
   animation-timing-function: step-start;
-  background: #92c2d7;
+  background: linear-gradient(#000172,#000272cf, #121212b8);
 }
