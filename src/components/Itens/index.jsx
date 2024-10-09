@@ -2,7 +2,7 @@ import { FaCheck, FaTrash } from 'react-icons/fa';
 import Operacao from '../Operacao';
 import styles from './Itens.module.css';
 
-export default function Itens() {
+export default function Itens(props) {
   return (
     <div className={styles.container_item}>
       <button className={styles.task}>
