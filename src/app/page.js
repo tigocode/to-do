@@ -1,5 +1,5 @@
 'use client'
-import {  useState } from 'react';
+import { useState } from 'react';
 
 import Total from '@/components/Total'
 import Task from '@/components/Task'
@@ -8,10 +8,10 @@ import Itens from '@/components/Itens';
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [ botaoClicado, setBotaoClidado ] = useState(false);
+  const [ehBotaoClicado, setBotaoClidado] = useState(false);
 
   function abrirSoma() {
-    setBotaoClidado(!botaoClicado);
+    setBotaoClidado(!ehBotaoClicado);
   }
 
   return (
@@ -25,7 +25,9 @@ export default function Home() {
         <div className={styles.line}></div>
         <div className={styles.itens}>
           <Itens
-          acao_click={abrirSoma} />
+            acao_click={abrirSoma}
+            ehBotaoClicado={ehBotaoClicado}
+          />
         </div>
       </div>
     </main>
