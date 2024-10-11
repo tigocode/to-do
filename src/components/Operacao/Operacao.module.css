@@ -28,6 +28,7 @@
   border: none;
   border-radius: 5px;
   padding: 10px;
+  text-align: center;
 }
 .container div button {
   display: flex;
