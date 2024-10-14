@@ -15,7 +15,7 @@ export default function Task(props) {
           <FaCheckSquare className={styles.icon_add} />
           <p>ADICIONAR</p>
         </button>
-        <button className={styles.button_delete_task}>
+        <button onClick={props.acao_delete} className={styles.button_delete_task}>
           <FaTrash className={styles.icon_delete} />
           <p>LIMPAR</p>
         </button>
