@@ -2,21 +2,26 @@ import { Lista } from '@/data/dataList';
 
 export let ListaItens = Lista;
 
+const isClient = () => typeof window !== 'undefined';
+
 export let ShowLista = () => {
-  if (localStorage.myLista) {
+  if (isClient() && localStorage.myLista) {
     ListaItens = JSON.parse(localStorage.getItem('myLista'));
   }
   return ListaItens;
 };
 
 export const AdicionarItem = (objeto) => {
-  if (localStorage.myLista) {
+  if (isClient() && localStorage.myLista) {
     ListaItens = JSON.parse(localStorage.getItem('myLista'));
   }
 
   ListaItens.push(objeto);
-  localStorage.myLista = JSON.stringify(ListaItens);
-  window.location.reload();
+
+  if(isClient()) {
+    localStorage.myLista = JSON.stringify(ListaItens);
+  }
+
   return ListaItens;
 };
 
@@ -34,6 +39,8 @@ export const CriarObjeto = (texto) => {
 
 export const DeletarTodaLista = () => {
   ListaItens = [];
-  localStorage.myLista = JSON.stringify(ListaItens);
-  window.location.reload();
+  if(isClient()) {
+    localStorage.myLista = JSON.stringify(ListaItens);
+  }
+  return ListaItens;
 };

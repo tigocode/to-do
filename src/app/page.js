@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Total from '@/components/Total'
 import Task from '@/components/Task'
@@ -10,24 +10,30 @@ import { CriarObjeto, DeletarTodaLista, ShowLista } from '@/service';
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [ehLista, setLista] = useState(ShowLista);
-  const [ehObjeto, setObjeto] = useState({})
+  const [ehLista, setLista] = useState([]);
   const [ehTextoDigitado, setTextoDigitado] = useState("");
   const [ehBotaoClicado, setBotaoClidado] = useState(false);
   const [ehLimparLista, setLimparLista] = useState()
 
+  // Carrega a lista do localStorage quando o componente é montado
+  useEffect(() => {
+    const lista = ShowLista(); // Pega a lista inicial do localStorage
+    setLista(lista); // Atualiza o estado com a lista
+  }, []);
 
   const handleTextoDigitado = (texto) => {
     setTextoDigitado(texto);    
   }
 
   const criarItemLista = () => {
-    setObjeto(CriarObjeto(ehTextoDigitado));
+    const novoObjeto = CriarObjeto(ehTextoDigitado);
+    setLista(novoObjeto);
     setTextoDigitado("");
   }
 
   const excluirItemLista = () => {
-    setLimparLista(DeletarTodaLista());
+    const listaVazia = DeletarTodaLista();
+    setLista(listaVazia);
   }
 
   const abrirSoma = () => {
@@ -42,7 +48,7 @@ export default function Home() {
           texto={handleTextoDigitado}
           valor={ehTextoDigitado}
           acao_add={criarItemLista}
-          acao_delete={DeletarTodaLista}
+          acao_delete={excluirItemLista}
         />
       </div>
       <div className={styles.list_tasks}>
