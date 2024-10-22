@@ -13,7 +13,6 @@ export default function Home() {
   const [ehLista, setLista] = useState([]);
   const [ehTextoDigitado, setTextoDigitado] = useState("");
   const [ehBotaoClicado, setBotaoClidado] = useState(false);
-  const [ehLimparLista, setLimparLista] = useState()
 
   // Carrega a lista do localStorage quando o componente é montado
   useEffect(() => {
