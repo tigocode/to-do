@@ -5,14 +5,16 @@ import Total from '@/components/Total'
 import Task from '@/components/Task'
 import Itens from '@/components/Itens';
 
-import { CriarObjeto, DeletarTodaLista, ShowLista } from '@/service';
+import { CriarObjeto, DeletarTodaLista, ShowLista, AtualizarItem } from '@/service';
 
 import styles from "./page.module.css";
 
 export default function Home() {
   const [ehLista, setLista] = useState([]);
   const [ehTextoDigitado, setTextoDigitado] = useState("");
+  
   const [ehBotaoClicado, setBotaoClidado] = useState(false);
+  const [ehId, setId] = useState(null);
 
   // Carrega a lista do localStorage quando o componente é montado
   useEffect(() => {
@@ -35,9 +37,15 @@ export default function Home() {
     setLista(listaVazia);
   }
 
-  const abrirSoma = () => {
+  const abrirSoma = (id) => {
+    setId(id);  // Define o ID do item clicado
     setBotaoClidado(!ehBotaoClicado);
   };
+
+  const atualizarItem = (id, qtd, valor) => {
+    AtualizarItem(id, qtd, valor);
+    setId(null);
+  }
 
   return (
     <main className={styles.container}>
@@ -57,11 +65,14 @@ export default function Home() {
           {ehLista.map((item, index) => (
             <Itens
               key={index}
+              id={ehId}
+              idItem={item.id}
               nome={item.nome}
               qtd={item.qtd}
               valor={item.valor}
-              acao_click={abrirSoma}
+              acao_click={() => abrirSoma(item.id)}
               ehBotaoClicado={ehBotaoClicado}
+              ehSoma={atualizarItem}
             />
           ))
           }

@@ -13,10 +13,13 @@ export default function Itens(props) {
         </button>
       </div>
       <Operacao
+        id={props.id}
+        idItem={props.idItem}
         qtd={props.qtd}
         valor={props.valor}
         acao_click={props.acao_click}
         ehBotaoClicado={props.ehBotaoClicado}
+        ehSoma={props.ehSoma}
       />
     </div>
   );
