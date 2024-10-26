@@ -25,13 +25,13 @@ export default function Operacao(props) {
       <IoMdCloseCircle onClick={props.acao_click} className={styles.botao_fechar} />
       <div>
         <input
-          type="text"
+          type="numeric"
           placeholder="0"
           value={ehQtd}
           onChange={(e) => setQtd(e.target.value)}
         />
         <input
-          type="text"
+          type="numeric"
           placeholder="R$"
           value={ehValor}
           onChange={(e) => setValor(e.target.value)}
