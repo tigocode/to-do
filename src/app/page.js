@@ -43,8 +43,11 @@ export default function Home() {
   };
 
   const atualizarItem = (id, qtd, valor) => {
-    AtualizarItem(id, qtd, valor);
+    const listaAtulizada = AtualizarItem(id, qtd, valor);
+    
     setId(null);
+    setBotaoClidado(!ehBotaoClicado);
+    setLista(listaAtulizada);
   }
 
   return (

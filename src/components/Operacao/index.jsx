@@ -1,11 +1,19 @@
 'use client';
 import styles from './Operacao.module.css';
 import { IoMdCloseCircle } from "react-icons/io";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Operacao(props) {
   const [ehQtd, setQtd] = useState(props.qtd || '');  // Inicializa com o valor atual ou vazio
   const [ehValor, setValor] = useState(props.valor || '');  // Inicializa com o valor atual ou vazio
+
+  useEffect(() => {
+    setQtd('');
+    setValor('');
+  }, [
+    props.qtd,
+    props.valor
+  ]);
 
   const handleAtualizar = () => {
     props.ehSoma(props.id, ehQtd, ehValor);
@@ -19,13 +27,13 @@ export default function Operacao(props) {
         <input
           type="text"
           placeholder="0"
-          value={props.id === props.idItem ? '' : ehQtd}
+          value={ehQtd}
           onChange={(e) => setQtd(e.target.value)}
         />
         <input
           type="text"
           placeholder="R$"
-          value={props.id === props.idItem ? '' : ehValor}
+          value={ehValor}
           onChange={(e) => setValor(e.target.value)}
         />
         <button onClick={handleAtualizar}>

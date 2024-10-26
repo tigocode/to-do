@@ -5,6 +5,7 @@ export let ListaItens = Lista;
 const isClient = () => typeof window !== 'undefined';
 
 export let ShowLista = () => {
+  console.log(ListaItens);
   if (isClient() && localStorage.myLista) {
     ListaItens = JSON.parse(localStorage.getItem('myLista'));
   }
