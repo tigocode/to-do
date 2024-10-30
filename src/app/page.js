@@ -16,6 +16,9 @@ export default function Home() {
   const [ehBotaoClicado, setBotaoClidado] = useState(false);
   const [ehId, setId] = useState(null);
 
+  const [ehQtd, setQtd] = useState('');
+  const [ehValor, setValor] = useState('');
+
   // Carrega a lista do localStorage quando o componente é montado
   useEffect(() => {
     const lista = ShowLista(); // Pega a lista inicial do localStorage
@@ -38,16 +41,22 @@ export default function Home() {
   }
 
   const abrirSoma = (id) => {
-    setId(id);  // Define o ID do item clicado
+    setId(id); 
+    const itemSelecionado = ehLista.find(item => item.id === id);
+    if (itemSelecionado) {
+      setQtd(itemSelecionado.qtd); 
+      setValor(itemSelecionado.valor);
+    } // Define o ID do item clicado
     setBotaoClidado(!ehBotaoClicado);
   };
 
   const atualizarItem = (id, qtd, valor) => {
-    const listaAtulizada = AtualizarItem(id, qtd, valor);
+    const listaAtualizada = AtualizarItem(id, qtd, valor);
     
-    setId(null);
+    setLista(listaAtualizada);
+    setQtd('');
+    setValor('');
     setBotaoClidado(!ehBotaoClicado);
-    setLista(listaAtulizada);
   }
 
   return (

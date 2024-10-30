@@ -7,14 +7,16 @@ export default function Itens(props) {
     <div className={styles.container_item}>
       <div onClick={props.acao_click} className={styles.task}>
         <FaCheck className={`${styles.icon_task} ${styles.check}`} />
+        <p>{props.id}</p>
         <p>{props.nome}</p>
+        <p>{props.qtd}</p>
+        <p>{props.valor}</p>
         <button className={`${styles.icon_task} ${styles.trash}`}>
           <FaTrash className={`${styles.icon_task}`} />
         </button>
       </div>
       <Operacao
         id={props.id}
-        idItem={props.idItem}
         qtd={props.qtd}
         valor={props.valor}
         acao_click={props.acao_click}

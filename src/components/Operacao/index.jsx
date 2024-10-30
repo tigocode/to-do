@@ -8,8 +8,8 @@ export default function Operacao(props) {
   const [ehValor, setValor] = useState(props.valor || '');  // Inicializa com o valor atual ou vazio
 
   useEffect(() => {
-    setQtd('');
-    setValor('');
+    setQtd(props.qtd || '');
+    setValor(props.valor || '');
   }, [
     props.qtd,
     props.valor
@@ -24,6 +24,10 @@ export default function Operacao(props) {
       <h3>SOMA DOS ITENS</h3>
       <IoMdCloseCircle onClick={props.acao_click} className={styles.botao_fechar} />
       <div>
+        <p>{props.id}</p>
+        <p>{props.nome}</p>
+        <p>{props.qtd}</p>
+        <p>{props.valor}</p>
         <input
           type="decimal"
           placeholder="0"
