@@ -5,7 +5,6 @@ export let ListaItens = Lista;
 const isClient = () => typeof window !== 'undefined';
 
 export let ShowLista = () => {
-  console.log(ListaItens);
   if (isClient() && localStorage.myLista) {
     ListaItens = JSON.parse(localStorage.getItem('myLista'));
   }
@@ -69,3 +68,12 @@ export const AtualizarItem = (id, ehQtd, ehValor) => {
 
   return ListaItens;
 };
+
+export const FiltraDados = (id) => {
+  if (isClient() && localStorage.myLista) {
+    ListaItens = JSON.parse(localStorage.getItem('myLista'));
+  }
+  const itemSelecionado = ListaItens.find(item => item.id === id);
+
+  return itemSelecionado;
+}

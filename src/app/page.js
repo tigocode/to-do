@@ -5,7 +5,7 @@ import Total from '@/components/Total'
 import Task from '@/components/Task'
 import Itens from '@/components/Itens';
 
-import { CriarObjeto, DeletarTodaLista, ShowLista, AtualizarItem } from '@/service';
+import { CriarObjeto, DeletarTodaLista, ShowLista, AtualizarItem, FiltraDados } from '@/service';
 
 import styles from "./page.module.css";
 
@@ -42,7 +42,7 @@ export default function Home() {
 
   const abrirSoma = (id) => {
     setId(id); 
-    const itemSelecionado = ehLista.find(item => item.id === id);
+    FiltraDados(id)
     if (itemSelecionado) {
       setQtd(itemSelecionado.qtd); 
       setValor(itemSelecionado.valor);
@@ -54,8 +54,6 @@ export default function Home() {
     const listaAtualizada = AtualizarItem(id, qtd, valor);
     
     setLista(listaAtualizada);
-    setQtd('');
-    setValor('');
     setBotaoClidado(!ehBotaoClicado);
   }
 
@@ -82,6 +80,8 @@ export default function Home() {
               nome={item.nome}
               qtd={item.qtd}
               valor={item.valor}
+              ehQtd={ehQtd}
+              ehValor={ehValor}
               acao_click={() => abrirSoma(item.id)}
               ehBotaoClicado={ehBotaoClicado}
               ehSoma={atualizarItem}

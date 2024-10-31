@@ -31,13 +31,13 @@ export default function Operacao(props) {
         <input
           type="decimal"
           placeholder="0"
-          value={ehQtd}
+          value={props.ehQtd}
           onChange={(e) => setQtd(e.target.value)}
         />
         <input
           type="decimal"
           placeholder="R$"
-          value={ehValor}
+          value={props.ehValor}
           onChange={(e) => setValor(e.target.value)}
         />
         <button onClick={handleAtualizar}>
