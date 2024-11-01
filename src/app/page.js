@@ -16,8 +16,8 @@ export default function Home() {
   const [ehBotaoClicado, setBotaoClidado] = useState(false);
   const [ehId, setId] = useState(null);
 
-  const [ehQtd, setQtd] = useState('');
-  const [ehValor, setValor] = useState('');
+  const [ehFiltroQtd, setFiltroQtd] = useState('');
+  const [ehFiltroValor, setFiltroValor] = useState('');
 
   // Carrega a lista do localStorage quando o componente é montado
   useEffect(() => {
@@ -38,16 +38,25 @@ export default function Home() {
   const excluirItemLista = () => {
     const listaVazia = DeletarTodaLista();
     setLista(listaVazia);
-  }
+  };
 
   const abrirSoma = (id) => {
-    setId(id); 
-    FiltraDados(id)
-    if (itemSelecionado) {
-      setQtd(itemSelecionado.qtd); 
-      setValor(itemSelecionado.valor);
-    } // Define o ID do item clicado
+    setId(id);
+    const item = FiltraDados(id);
+    if (item) {
+      setFiltroQtd(item.qtd); // Atualiza o estado com a quantidade do item
+      setFiltroValor(item.valor); // Atualiza o estado com o valor do item
+    }
+    console.log(ehFiltroQtd);
+    console.log(ehFiltroValor);
     setBotaoClidado(!ehBotaoClicado);
+  };
+
+  const fecharSoma = () => {
+    setBotaoClidado(!ehBotaoClicado);
+    setId(null); // Reseta o ID ao fechar
+    setFiltroQtd(''); // Reseta o filtro
+    setFiltroValor(''); // Reseta o filtro
   };
 
   const atualizarItem = (id, qtd, valor) => {
@@ -55,7 +64,7 @@ export default function Home() {
     
     setLista(listaAtualizada);
     setBotaoClidado(!ehBotaoClicado);
-  }
+  };
 
   return (
     <main className={styles.container}>
@@ -80,9 +89,8 @@ export default function Home() {
               nome={item.nome}
               qtd={item.qtd}
               valor={item.valor}
-              ehQtd={ehQtd}
-              ehValor={ehValor}
-              acao_click={() => abrirSoma(item.id)}
+              ehAbrirSoma={() => abrirSoma(item.id)}
+              ehFecharSoma={() => fecharSoma(item.id)}
               ehBotaoClicado={ehBotaoClicado}
               ehSoma={atualizarItem}
             />

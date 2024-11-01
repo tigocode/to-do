@@ -22,22 +22,18 @@ export default function Operacao(props) {
   return (
     <div className={props.ehBotaoClicado ? `${styles.container}` : `${styles.container}  ${styles.invisivel}`}>
       <h3>SOMA DOS ITENS</h3>
-      <IoMdCloseCircle onClick={props.acao_click} className={styles.botao_fechar} />
+      <IoMdCloseCircle onClick={props.ehFecharSoma} className={styles.botao_fechar} />
       <div>
-        <p>{props.id}</p>
-        <p>{props.nome}</p>
-        <p>{props.qtd}</p>
-        <p>{props.valor}</p>
         <input
           type="decimal"
           placeholder="0"
-          value={props.ehQtd}
+          value={ehQtd}
           onChange={(e) => setQtd(e.target.value)}
         />
         <input
           type="decimal"
           placeholder="R$"
-          value={props.ehValor}
+          value={ehValor}
           onChange={(e) => setValor(e.target.value)}
         />
         <button onClick={handleAtualizar}>
